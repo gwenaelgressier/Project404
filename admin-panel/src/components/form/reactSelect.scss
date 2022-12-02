@@ -1,0 +1,42 @@
+.select__control {
+  border-color: #16428a !important;
+  border-radius: 8px;
+  padding: 0;
+  margin: 0;
+}
+.select__value-container {
+  height: 36px;
+  position: initial !important;
+  &--has-value {
+    align-content: center;
+    .select__single-value {
+      position: relative;
+      top: 0%;
+      transform: translateY(0%);
+    }
+  }
+  .select__placeholder {
+    top: auto;
+    transform: translateY(0%);
+  }
+  .css-1rhbuit-multiValue {
+    background-color: #c0def8;
+    color: #16428a;
+    .select__multi-value__label {
+      color: #16428a;
+    }
+    .select__multi-value__remove {
+      &:hover {
+        background-color: #c0def8;
+        color: #16428a;
+        svg {
+          transform: scale(1.5);
+        }
+      }
+    }
+  }
+}
+.css-b8ldur-Input {
+  margin: -6px 0 0 0 !important;
+  padding-top: 0px !important;
+}
