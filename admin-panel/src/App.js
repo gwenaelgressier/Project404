@@ -8,7 +8,14 @@ import { UidContext } from "./components/AppContext";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import AdminDashboard from "./components/adminDashboard/AdminDashboard";
 import Dev from "./components/dev/Dev";
+import DevCybersecurite from "./components/dev/DevCybersecurite";
+import DevHtmlCss from "./components/dev/DevHtmlCss";
+import DevJs from "./components/dev/DevJs";
+import DevLibrairie from "./components/dev/DevLibrairie";
+import DevReact from "./components/dev/DevReact";
+import DevSass from "./components/dev/DevSass";
 import Gaming from "./components/gaming/Gaming";
+import AddArticle from "./components/addArticle/AddArticle";
 
 function App() {
   const [uid, setUid] = useState(null);
@@ -39,6 +46,22 @@ function App() {
             <>
               <Route path="/dashboard" element={<AdminDashboard />} />
               <Route path="/dashboard/dev" element={<Dev />} />
+              <Route path="/dashboard/dev/htmlcss" element={<DevHtmlCss />} />
+              <Route path="/dashboard/dev/sass" element={<DevSass />} />
+              <Route path="/dashboard/dev/js" element={<DevJs />} />
+              <Route path="/dashboard/dev/react" element={<DevReact />} />
+              <Route
+                path="/dashboard/dev/librairie"
+                element={<DevLibrairie />}
+              />
+              <Route
+                path="/dashboard/dev/cybersecurite"
+                element={<DevCybersecurite />}
+              />
+              <Route
+                path="/dashboard/dev/cybersecurite/addarticle"
+                element={<AddArticle />}
+              />
               <Route path="/dashboard/gaming" element={<Gaming />} />
             </>
           )}
