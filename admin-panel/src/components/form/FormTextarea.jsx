@@ -50,11 +50,12 @@ export default function FormTextarea({
   }, []);
 
   return (
-    <>
+    <div id="form-input-text-area">
       <label id="labelTextArea" htmlFor={id} className={fontHeight}>
         {label} {required && <span className="text-danger">*</span>}
       </label>
       <textarea
+        className="d-block"
         id={id}
         placeholder={placeholder}
         name={name}
@@ -75,6 +76,6 @@ export default function FormTextarea({
           }}
         />
       </div>
-    </>
+    </div>
   );
 }

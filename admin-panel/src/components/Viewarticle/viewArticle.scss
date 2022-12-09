@@ -1,0 +1,12 @@
+#ViewArticle {
+  border: 1px solid red;
+  .card-image {
+    width: 40%;
+    .card-pic {
+      width: 100%;
+    }
+  }
+  .plus {
+    rotate: 45deg;
+  }
+}

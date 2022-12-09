@@ -17,6 +17,10 @@ const PostSchema = new mongoose.Schema(
       type: String,
       required: true,
     },
+    acroche: {
+      type: String,
+      required: true,
+    },
     message: {
       type: String,
       trim: true,

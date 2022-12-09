@@ -12,7 +12,7 @@ const { checkUser, requireAuth } = require("./middleware/auth.middleware");
 const app = express();
 
 const corsOptions = {
-  origin: process.env.CLIENT_URL,
+  origin: [process.env.CLIENT_URL, process.env.ADMIN_URL],
   //doit être activée pour que l'appel utilise les cookies
   credentials: true,
   allowedHeaders: ["sessionId", "Content-Type"],

@@ -18,7 +18,7 @@ import "./form-input-text.scss";
  * @returns jsx
  */
 
-export const FormInputText = ({
+export default function FormInputText({
   id,
   text,
   name,
@@ -29,7 +29,7 @@ export const FormInputText = ({
   register,
   errors,
   defaultValue,
-}) => {
+}) {
   return (
     <div id={"form-input-text" + (accounted ? "-" + accounted : "")}>
       <label htmlFor={id} className="d-block">
@@ -67,4 +67,4 @@ export const FormInputText = ({
       </div>
     </div>
   );
-};
+}

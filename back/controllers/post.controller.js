@@ -39,7 +39,7 @@ module.exports.createPost = async (req, res) => {
 
     //stockage de la nouvelle image.
     fs.writeFile(
-      `../frontend/public/uploads/posts/${fileName}`,
+      `../front/public/uploads/posts/${fileName}`,
       req.file.buffer,
       (err) => {
         if (err) throw err;
@@ -50,9 +50,12 @@ module.exports.createPost = async (req, res) => {
   const newPost = new postModel({
     posterId: req.body.posterId,
     message: req.body.message,
-    picture: req.file ? `./uploads/posts/` + fileName : "",
+    picture: req.file
+      ? `${process.env.CLIENT_URL}/uploads/posts/` + fileName
+      : "",
     title: req.body.title,
     origin: req.body.origin,
+    acroche: req.body.acroche,
     likers: [],
     comments: [],
   });

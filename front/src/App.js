@@ -1,24 +1,42 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import { UidContext } from "./components/AppContext";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import HomePage from "./components/HomePage";
+import "bootstrap/dist/css/bootstrap.min.css";
+import { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import axios from "axios";
+import { getUser } from "./actions/user.actions";
 
 function App() {
+  const [uid, setUid] = useState(null);
+  const dispatch = useDispatch();
+  const userData = useSelector((state) => state.userReducer);
+
+  //a chaque fois que app est appellé controle du token
+  useEffect(() => {
+    const fetchToken = async () => {
+      await axios({
+        method: "get",
+        url: `${process.env.REACT_APP_API_URL}jwtid`,
+        withCredentials: true,
+      })
+        .then((res) => setUid(res.data)) //fait evoluer le uid
+        .catch((err) => console.log("No token"));
+    };
+    fetchToken();
+    if (uid) dispatch(getUser(uid));
+  }, [uid, dispatch]); //[uid] à chaque foit que uid evolue tu rejoue App
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <UidContext.Provider>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="*" element={<HomePage />} />
+        </Routes>
+      </BrowserRouter>
+    </UidContext.Provider>
   );
 }
 

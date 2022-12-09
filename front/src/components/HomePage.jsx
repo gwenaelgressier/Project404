@@ -1,13 +1,12 @@
 import React, { useEffect, useState } from "react";
-import Navbar from "../navbar/Navbar";
-import { NavLink } from "react-router-dom";
-import ViewArticle from "../Viewarticle/ViewArticle";
-
+import Navbar from "./navbar/Navbar";
+import ViewArticle from "../components/Viewarticle/ViewArticle";
 import { useDispatch, useSelector } from "react-redux";
-import { getPosts } from "../../actions/post.actions";
+import { getPosts } from "../actions/post.actions";
 import { isEmpty } from "./Utils.jsx";
+import { NavLink } from "react-router-dom";
 
-export default function DevCybersecurite() {
+export default function HomePage() {
   const [loadPost, setLoadPost] = useState(true);
   const [count, setCount] = useState(5);
   const dispatch = useDispatch();
