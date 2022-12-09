@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Navbar from "../navbar/Navbar";
 import FormInputText from "../form/FormInputText";
 import { useForm } from "react-hook-form";
@@ -8,10 +8,14 @@ import { originService } from "../../services/origine";
 import { postService } from "../../services/post";
 import { useDispatch, useSelector } from "react-redux";
 import { addPost, getPosts } from "../../actions/post.actions";
+import Editeur from "./Editeur";
 
 export default function AddArticle() {
+  const [message, setMessage] = useState();
+
   const userData = useSelector((state) => state.userReducer);
   const dispatch = useDispatch();
+
   const {
     register,
     handleSubmit,
@@ -25,7 +29,7 @@ export default function AddArticle() {
         title: data.title,
         origin: data.origin,
         acroche: data.acroche,
-        message: data.message,
+        message: message,
         posterId: userData._id,
       };
       console.log("datas", datas);
@@ -75,7 +79,7 @@ export default function AddArticle() {
         errors={errors}
       />
 
-      <FormTextarea
+      {/* <FormTextarea
         id="message"
         name="message"
         label="message"
@@ -83,8 +87,8 @@ export default function AddArticle() {
         placeholder="Message"
         register={register}
         errors={errors}
-      />
-
+      /> */}
+      <Editeur setMessage={setMessage} />
       <button
         onClick={handleSubmit(onSubmit)}
         // disabled={isSubmiting}
@@ -92,6 +96,7 @@ export default function AddArticle() {
       >
         valider
       </button>
+      <div dangerouslySetInnerHTML={{ __html: message }}></div>
     </div>
   );
 }
