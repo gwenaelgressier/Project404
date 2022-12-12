@@ -10,6 +10,7 @@ const {
 //post
 router.post("/", upload.single("file"), postController.createPost);
 router.get("/", postController.readPost);
+router.get("/:id", postController.readOnePost);
 router.put("/:id", postController.updatePost);
 router.delete("/:id", postController.deletePost);
 router.get("/origine", getOrigine);

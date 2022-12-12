@@ -16,6 +16,7 @@ import DevReact from "./components/dev/DevReact";
 import DevSass from "./components/dev/DevSass";
 import Gaming from "./components/gaming/Gaming";
 import AddArticle from "./components/addArticle/AddArticle";
+import Article from "./components/Viewarticle/Article";
 
 function App() {
   const [uid, setUid] = useState(null);
@@ -61,6 +62,10 @@ function App() {
               <Route
                 path="/dashboard/dev/cybersecurite/addarticle"
                 element={<AddArticle />}
+              />
+              <Route
+                path="/dashboard/dev/cybersecurite/:titleid"
+                element={<Article />}
               />
               <Route path="/dashboard/gaming" element={<Gaming />} />
             </>

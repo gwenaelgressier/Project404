@@ -82,6 +82,19 @@ module.exports.readPost = (req, res) => {
   }).sort({ createdAt: -1 });
 };
 
+module.exports.readOnePost = (req, res) => {
+  if (!ObjectID.isValid(req.params.id))
+    return res.status(400).send("ID unknown : " + req.params.id);
+
+  PostModel.findById(req.params.id, function (err, docs) {
+    if (err) {
+      console.log(err);
+    } else {
+      res.send(docs);
+    }
+  });
+};
+
 //CRUD : Update
 /**
  * fonction pour mettre à jour un post
