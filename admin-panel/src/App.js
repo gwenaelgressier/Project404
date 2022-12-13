@@ -17,6 +17,7 @@ import DevSass from "./components/dev/DevSass";
 import Gaming from "./components/gaming/Gaming";
 import AddArticle from "./components/addArticle/AddArticle";
 import Article from "./components/Viewarticle/Article";
+import "./app.scss";
 
 function App() {
   const [uid, setUid] = useState(null);

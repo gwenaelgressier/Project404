@@ -10,11 +10,11 @@ const {
 //post
 router.post("/", upload.single("file"), postController.createPost);
 router.get("/", postController.readPost);
+router.get("/article/origine", getOrigine);
+router.post("/article/origine", postOrigine);
 router.get("/:id", postController.readOnePost);
 router.put("/:id", postController.updatePost);
 router.delete("/:id", postController.deletePost);
-router.get("/origine", getOrigine);
-router.post("/origine", postOrigine);
 
 // router.patch("/like-post/:id", postController.likePost);
 // router.patch("/unlike-post/:id", postController.unlikePost);

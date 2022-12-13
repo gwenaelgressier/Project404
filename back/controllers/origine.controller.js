@@ -7,7 +7,7 @@ const postOrigineSchema = new mongoose.Schema({
 const PostOrigine = mongoose.model("postOrigine", postOrigineSchema);
 
 /**
- * function qui affiche toute les sauces de la base de données
+ * function qui affiche toute les origines
  *
  * @param {*} req
  * @param {*} res

@@ -12,6 +12,10 @@ import Editeur from "./Editeur";
 
 export default function AddArticle() {
   const [message, setMessage] = useState();
+  const [message2, setMessage2] = useState();
+  const [message3, setMessage3] = useState();
+  const [message4, setMessage4] = useState();
+  const [message5, setMessage5] = useState();
 
   const userData = useSelector((state) => state.userReducer);
   const dispatch = useDispatch();
@@ -30,6 +34,10 @@ export default function AddArticle() {
         origin: data.origin,
         acroche: data.acroche,
         message: message,
+        message2: message2,
+        message3: message3,
+        message4: message4,
+        message5: message5,
         posterId: userData._id,
       };
       console.log("datas", datas);
@@ -48,27 +56,32 @@ export default function AddArticle() {
       <div className="ms-5">
         <p className="mt-5 text-center">AddArticle</p>
       </div>
-      <FormInputText
-        id="title"
-        name="title"
-        label="Titre"
-        required={"Merci de saisire le titre"} //errors message
-        placeholder="Titre"
-        register={register}
-        errors={errors}
-      />
-      <ReactSelectAsync
-        id="origin"
-        name="origin"
-        label="Origine"
-        required={"Merci de saisire le genre"} //errors message
-        placeholder="Origine"
-        register={register}
-        getOptions={originService.getOrigin}
-        errors={errors}
-        control={control}
-      />
-
+      <div className="d-flex align-items-center">
+        <div>
+          <FormInputText
+            id="title"
+            name="title"
+            label="Titre"
+            required={"Merci de saisire le titre"} //errors message
+            placeholder="Titre"
+            register={register}
+            errors={errors}
+          />
+        </div>
+        <div className="ms-5">
+          <ReactSelectAsync
+            id="origin"
+            name="origin"
+            label="Origine"
+            required={"Merci de saisire le genre"} //errors message
+            placeholder="Origine"
+            register={register}
+            getOptions={originService.getOrigin}
+            errors={errors}
+            control={control}
+          />
+        </div>
+      </div>
       <FormTextarea
         id="acroche"
         name="acroche"
@@ -79,16 +92,8 @@ export default function AddArticle() {
         errors={errors}
       />
 
-      {/* <FormTextarea
-        id="message"
-        name="message"
-        label="message"
-        required={"Merci de saisire le message"} //errors message
-        placeholder="Message"
-        register={register}
-        errors={errors}
-      /> */}
       <Editeur setMessage={setMessage} />
+
       <button
         onClick={handleSubmit(onSubmit)}
         // disabled={isSubmiting}

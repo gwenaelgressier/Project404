@@ -24,7 +24,7 @@ const PostSchema = new mongoose.Schema(
     message: {
       type: String,
       trim: true,
-      maxlength: 2048,
+      //maxlength: 2048,
       required: true,
     },
     picture: {
