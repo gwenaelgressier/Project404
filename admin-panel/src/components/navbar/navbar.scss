@@ -18,3 +18,38 @@
 .btn {
   --bs-btn-padding-y: 7px;
 }
+
+#navbar {
+  background-color: var(--color-2);
+
+  .info {
+    color: var(--color-7);
+    font-weight: bold;
+    font-size: 2rem;
+  }
+
+  .link {
+    font-size: 1.5rem;
+    color: var(--color-7);
+    .logo {
+      font-weight: bold;
+      font-size: 2rem;
+    }
+    &:hover {
+      color: var(--color-3);
+    }
+  }
+
+  #navbar-content {
+    .link {
+      font-size: 1.5rem;
+      color: var(--color-7);
+      &:hover {
+        color: var(--color-3);
+      }
+      &.active {
+        color: var(--color-3);
+      }
+    }
+  }
+}

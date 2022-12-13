@@ -7,6 +7,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { getPosts } from "../../actions/post.actions";
 import { isEmpty } from "./Utils.jsx";
 
+import "./devCybersecurite.scss";
+
 export default function DevCybersecurite() {
   const [loadPost, setLoadPost] = useState(true);
   const [count, setCount] = useState(5);
@@ -35,9 +37,9 @@ export default function DevCybersecurite() {
   }, [loadPost, dispatch, count]);
 
   return (
-    <div>
+    <div id="dev-cybersecurite">
       <Navbar />
-      <div className="mx-5">
+      <div className="mx-5 article-viewer">
         <p className="mt-5 text-center">Cybersecurite</p>
         <NavLink
           className="d-flex justify-content-center"

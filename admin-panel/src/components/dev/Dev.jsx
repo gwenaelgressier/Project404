@@ -2,12 +2,13 @@ import React from "react";
 import { useSelector } from "react-redux";
 import { NavLink } from "react-router-dom";
 import Navbar from "../navbar/Navbar";
+import "./dev.scss";
 
 export default function Dev() {
   return (
-    <div id="Dev">
+    <div id="dev">
       <Navbar />
-      <div className="mt-5">
+      <div className="mt-5 col-8 m-auto contener-origine">
         <NavLink
           className="d-flex justify-content-center"
           to="/dashboard/dev/htmlcss"

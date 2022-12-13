@@ -32,7 +32,7 @@ export default function ViewArticle({ post }) {
         </div>
       )}
       <div className="d-flex justify-content-between w-100">
-        <div className="ms-3 ">
+        <div className="ms-3 card-contener">
           '
           <NavLink className="d-flex justify-content-center" to={test}>
             <p>{post.title}</p>
