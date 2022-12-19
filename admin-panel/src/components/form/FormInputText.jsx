@@ -32,7 +32,7 @@ export default function FormInputText({
 }) {
   return (
     <div id={"form-input-text" + (accounted ? "-" + accounted : "")}>
-      <label htmlFor={id} className="d-block">
+      <label id="label-input-text" htmlFor={id} className="d-block">
         {label}{" "}
         {required && label !== undefined && (
           <span className="text-danger">*</span>

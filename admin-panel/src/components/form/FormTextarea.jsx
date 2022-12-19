@@ -39,19 +39,19 @@ export default function FormTextarea({
       fontWeight === "normal" ||
       fontWeight === "light"
     ) {
-      const elem = document.getElementById("labelTextArea");
+      const elem = document.getElementById("label-text-area");
       elem.classList.add(`font-weight-${fontWeight}`);
     }
 
     if (fontWeight === "italic") {
-      const elem = document.getElementById("labelTextArea");
+      const elem = document.getElementById("label-text-area");
       elem.classList.add(`font-${fontWeight}`);
     }
   }, []);
 
   return (
     <div id="form-input-text-area">
-      <label id="labelTextArea" htmlFor={id} className={fontHeight}>
+      <label id="label-text-area" htmlFor={id} className={fontHeight}>
         {label} {required && <span className="text-danger">*</span>}
       </label>
       <textarea

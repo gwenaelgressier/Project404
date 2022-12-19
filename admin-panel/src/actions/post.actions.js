@@ -43,6 +43,7 @@ export const getPost = (postId) => {
 };
 
 export const addPost = (data) => {
+  console.log(data);
   return (dispatch) => {
     return axios
       .post(`${process.env.REACT_APP_API_URL}api/post/`, data)

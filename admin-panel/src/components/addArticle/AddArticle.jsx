@@ -9,13 +9,12 @@ import { postService } from "../../services/post";
 import { useDispatch, useSelector } from "react-redux";
 import { addPost, getPosts } from "../../actions/post.actions";
 import Editeur from "./Editeur";
+import "./addArticle.scss";
+import UploadImage from "../uploadImage/UploadImage";
 
 export default function AddArticle() {
   const [message, setMessage] = useState();
-  const [message2, setMessage2] = useState();
-  const [message3, setMessage3] = useState();
-  const [message4, setMessage4] = useState();
-  const [message5, setMessage5] = useState();
+  const [img, setImg] = useState();
 
   const userData = useSelector((state) => state.userReducer);
   const dispatch = useDispatch();
@@ -28,18 +27,16 @@ export default function AddArticle() {
   } = useForm();
 
   const onSubmit = async (data) => {
+    console.log(img);
     try {
-      const datas = {
-        title: data.title,
-        origin: data.origin,
-        acroche: data.acroche,
-        message: message,
-        message2: message2,
-        message3: message3,
-        message4: message4,
-        message5: message5,
-        posterId: userData._id,
-      };
+      const datas = new FormData();
+      datas.append("title", data.title);
+      datas.append("origin", data.origin);
+      datas.append("acroche", data.acroche);
+      datas.append("message", message);
+      datas.append("posterId", userData._id);
+      if (img) datas.append("file", img);
+
       console.log("datas", datas);
 
       await dispatch(addPost(datas));
@@ -47,14 +44,14 @@ export default function AddArticle() {
     } catch (err) {
       console.log(err);
     }
-    console.log(JSON.stringify(data));
+    //console.log(JSON.stringify(data));
   };
 
   return (
-    <div>
+    <div id="add-article">
       <Navbar />
       <div className="ms-5">
-        <p className="mt-5 text-center">AddArticle</p>
+        <p className="mt-5 text-center title">AddArticle</p>
       </div>
       <div className="d-flex align-items-center">
         <div>
@@ -82,16 +79,22 @@ export default function AddArticle() {
           />
         </div>
       </div>
-      <FormTextarea
-        id="acroche"
-        name="acroche"
-        label="acroche"
-        required={"Merci de saisire l'acroche"} //errors message
-        placeholder="Acroche"
-        register={register}
-        errors={errors}
-      />
-
+      <div className="d-flex align-items-center">
+        <div>
+          <FormTextarea
+            id="acroche"
+            name="acroche"
+            label="acroche"
+            required={"Merci de saisire l'acroche"} //errors message
+            placeholder="Acroche"
+            register={register}
+            errors={errors}
+          />
+        </div>
+        <div className="ms-5">
+          <UploadImage setImg={setImg} />
+        </div>
+      </div>
       <Editeur setMessage={setMessage} />
 
       <button

@@ -2,13 +2,13 @@ import React from "react";
 import "./viewArticle.scss";
 import { Plus } from "../media/svg/Plus";
 import { useDispatch } from "react-redux";
-import { deletePost } from "../../actions/post.actions";
+import { deletePost, getPosts } from "../../actions/post.actions";
 import { NavLink } from "react-router-dom";
 
 export default function ViewArticle({ post }) {
   const dispatch = useDispatch();
   const deletePostDispatch = () => dispatch(deletePost(post._id));
-
+  console.log(post);
   //remplace les espace par des - dans le title
   var str = post.title;
   str = str.replace(/ /g, "-");
@@ -18,7 +18,7 @@ export default function ViewArticle({ post }) {
   const erasePost = async () => {
     try {
       await deletePostDispatch();
-      dispatch(deletePost(post));
+      dispatch(getPosts());
     } catch (err) {
       console.log(err);
     }
