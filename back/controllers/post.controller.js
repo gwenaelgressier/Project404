@@ -136,6 +136,7 @@ module.exports.deletePost = (req, res) => {
     return res.status(400).send("ID unknown : " + req.params.id); //
 
   PostModel.findByIdAndRemove(req.params.id, (err, docs) => {
+    console.log(docs);
     if (!err) {
       fs.unlink(docs.picture, () => {});
       res.send(docs);
