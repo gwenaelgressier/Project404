@@ -22,7 +22,10 @@
     "redux": "^4.2.0",
     "redux-devtools-extension": "^2.13.9",
     "redux-thunk": "^2.4.2",
-    "web-vitals": "^2.1.4"
+    "web-vitals": "^2.1.4",
+    "@tinymce/tinymce-react": "^4.2.0",
+    "tinymce": "^6.3.0"
+
   },
   "scripts": {
     "start": "set PORT=4300 && react-scripts start",

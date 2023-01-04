@@ -2,6 +2,7 @@ import axios from "axios";
 
 // posts
 export const GET_POSTS = "GET_POSTS";
+export const GET_POST = "GET_POST";
 export const GET_ALL_POSTS = "GET_ALL_POSTS";
 export const ADD_POST = "ADD_POST";
 // export const LIKE_POST = "LIKE_POST";
@@ -30,7 +31,19 @@ export const getPosts = (num) => {
   };
 };
 
+export const getPost = (postId) => {
+  return (dispatch) => {
+    return axios
+      .get(`${process.env.REACT_APP_API_URL}api/post/${postId}`)
+      .then((res) => {
+        dispatch({ type: GET_POST, payload: res });
+      })
+      .catch((err) => console.log(err));
+  };
+};
+
 export const addPost = (data) => {
+  console.log(data);
   return (dispatch) => {
     return axios
       .post(`${process.env.REACT_APP_API_URL}api/post/`, data)

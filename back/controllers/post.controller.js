@@ -50,9 +50,7 @@ module.exports.createPost = async (req, res) => {
   const newPost = new postModel({
     posterId: req.body.posterId,
     message: req.body.message,
-    picture: req.file
-      ? `${process.env.CLIENT_URL}/uploads/posts/` + fileName
-      : "",
+    picture: req.file ? `../../uploads/posts/` + fileName : "",
     title: req.body.title,
     origin: req.body.origin,
     acroche: req.body.acroche,
@@ -136,7 +134,7 @@ module.exports.deletePost = (req, res) => {
     return res.status(400).send("ID unknown : " + req.params.id); //
 
   PostModel.findByIdAndRemove(req.params.id, (err, docs) => {
-    console.log(docs);
+    console.log("i'm here", docs);
     if (!err) {
       fs.unlink(docs.picture, () => {});
       res.send(docs);

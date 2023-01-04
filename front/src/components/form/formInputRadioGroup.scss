@@ -1,0 +1,16 @@
+.radio-group {
+  div {
+    label {
+      color: #16428a;
+      background-color: #ffffff;
+      border-radius: 0.25rem !important;
+      border: 1px solid #294d90;
+      font-weight: 600;
+    }
+  }
+}
+
+.btn-primary:not(:disabled):not(.disabled).active {
+  background-color: #16428a !important;
+  border-color: #16428a;
+}
