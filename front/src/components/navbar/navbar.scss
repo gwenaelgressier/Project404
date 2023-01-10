@@ -54,14 +54,18 @@
 //   }
 // }
 #navbar {
-  background-color: #1a1a1a;
-  border-bottom: 1px solid #282828;
+  background-color: var(--color-2);
   font-size: 1.5rem;
+  font-weight: bold;
   .link {
     color: white;
     text-decoration: none;
     &:hover {
       color: #ffc107;
     }
+  }
+  #navbar-content{
+    font-size: 1.2rem;
+    margin:1rem 0;
   }
 }

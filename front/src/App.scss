@@ -1,6 +1,6 @@
 :root {
   --color-1: #121212;
-  --color-2: #262626;
+  --color-2: #1a1a1a;
   --color-3: #ff9117;
   --color-4: #202020;
   --color-5: #ff9c2e;
@@ -9,5 +9,6 @@
 }
 
 body {
-  background-color: var(--color-1);
+  background-color: var(--color-1) !important;
 }
+
